@@ -12,23 +12,17 @@ public class Util {
     private static final String CON_URL = "jdbc:mysql://localhost:3306/mydbtest";
 
     public static Connection getConnect() {
-    //public static void main(String[] args) {
-    Connection conn = null;
+        Connection conn = null;
         try {
             Class.forName(DRIVER);
             conn = DriverManager.getConnection(CON_URL, USERNAME, PASSWORD);
             Statement stmt = conn.createStatement();
-            //return conn;
             conn.setAutoCommit(false);
-            //System.out.print("ok");
-            //System.out.print(conn.isClosed());
         } catch (SQLException e) {
             e.printStackTrace();
-            //System.out.print("ne ok");
         } catch (ClassNotFoundException e) {
-            //System.out.print("ne ok2");
             throw new RuntimeException(e);
         }
-       return conn;
+        return conn;
     }// реализуйте настройку соеденения с БД
 }
