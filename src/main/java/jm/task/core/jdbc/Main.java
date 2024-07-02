@@ -7,6 +7,8 @@ import jm.task.core.jdbc.util.Util;
 
 import java.util.List;
 
+import static jm.task.core.jdbc.util.Util.closeConnection;
+
 public class Main {
     private static final User user1 = new User("Sasha", "Alexandrov", (byte) 13);
     private static final User user2 = new User("Pasha", "Petrov", (byte) 3);
@@ -35,6 +37,6 @@ public class Main {
         userService.getAllUsers();
         userService.cleanUsersTable();
         userService.dropUsersTable();
-        Util.closeConnection();// реализуйте алгоритм здесь
+        closeConnection();// реализуйте алгоритм здесь
     }
 }

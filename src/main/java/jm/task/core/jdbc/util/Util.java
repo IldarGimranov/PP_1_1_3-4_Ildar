@@ -9,7 +9,7 @@ public class Util {
     private static final String USERNAME = "root";
     private static final String PASSWORD = "root";
     private static final String CON_URL = "jdbc:mysql://localhost:3306/mydbtest";
-    private static Connection conn = null;
+    static Connection conn = null;
 
     private Util() {
     }
