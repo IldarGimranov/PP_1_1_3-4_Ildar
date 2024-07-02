@@ -54,6 +54,7 @@ public class UserDaoJDBCImpl implements UserDao {
             preparedStatement.executeUpdate();
             connection.commit();
         } catch (SQLException e) {
+            e.printStackTrace();
             try {
                 connection.rollback();
             } catch (SQLException ex) {
@@ -72,6 +73,7 @@ public class UserDaoJDBCImpl implements UserDao {
             statement.executeUpdate();
             connection.commit();
         } catch (SQLException e) {
+            e.printStackTrace();
             try {
                 connection.rollback();
             } catch (SQLException ex) {
