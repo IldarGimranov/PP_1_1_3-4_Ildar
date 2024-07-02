@@ -10,13 +10,15 @@ public class Util {
     private static final String USERNAME = "root";
     private static final String PASSWORD = "root";
     private static final String CON_URL = "jdbc:mysql://localhost:3306/mydbtest";
+    private static Connection conn = null;
+    private Util() {
+    }
 
     public static Connection getConnect() {
-        Connection conn = null;
+
         try {
             Class.forName(DRIVER);
             conn = DriverManager.getConnection(CON_URL, USERNAME, PASSWORD);
-            Statement stmt = conn.createStatement();
             conn.setAutoCommit(false);
         } catch (SQLException e) {
             e.printStackTrace();
@@ -24,5 +26,13 @@ public class Util {
             throw new RuntimeException(e);
         }
         return conn;
+    }
+
+    public static void closeConnection() {
+        try {
+            conn.close();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
     }// реализуйте настройку соеденения с БД
 }
